@@ -17,6 +17,17 @@ Esta pasta contém somente os arquivos fundamentais para publicar e manter a apl
 - Dados de cada usuário: `users/{uid}/agenda/state`.
 - Dados armazenados: professor, grade, disciplinas, aulas, habilidades, bimestres, revisões e configurações da agenda.
 
+## Distribuição automática por bimestre
+
+Na opção **Bimestres**, o usuário cadastra as datas de início e término dos quatro períodos. Ao gerar uma agenda, o sistema:
+
+1. identifica a qual bimestre pertence cada data;
+2. procura no histórico a disciplina e o ano correspondentes àquele bimestre;
+3. conta as aulas previstas na grade desde o início do período;
+4. distribui as aulas em ordem cronológica, de segunda a sexta-feira.
+
+Sábados e domingos não entram na contagem. Os períodos ficam salvos no documento do usuário no Firestore.
+
 ## Publicação no GitHub Pages
 
 Coloque todos os arquivos desta pasta diretamente na raiz do repositório. Em **Settings → Pages**, escolha:
